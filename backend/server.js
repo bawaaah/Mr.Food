@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 //connect to database
 connectDB()
 
+//routes
 app.use('/user',user)
 
 

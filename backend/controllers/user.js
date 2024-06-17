@@ -19,9 +19,8 @@ const addUser = async (req,res) => {
 
 const getUser = async(req,res) =>{
     const {name} = req.params
-
     try {
-        const details = await User.findOne({username:name})
+        const details = await User.findOne({username: name})
         if(details == null) res.json({massage: "NULL"})
         else res.json(details)
         
@@ -30,4 +29,37 @@ const getUser = async(req,res) =>{
     }
 }
 
-module.exports = {addUser,getUser}
+const getAllUser = async(req,res) => {
+    try {
+        const allUsers = await User.find()
+        if (allUsers == null) res.json({massage: "NULL"})
+        else res.json(allUsers)
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
+
+const updateUser = async (req,res) => {
+    const name = req.params.name
+    const data = req.body
+    try {
+        const details = await User.findOneAndUpdate({username: name},data)
+        if (details == null) res.json({ message: "Username not available"})
+        else res.json(details)
+    } catch (error) {
+        res.status(400).json({ massage: error.message })
+    }
+}
+
+const deleteUser = async (req,res) => {
+    const name = req.params.name
+    try {
+        const details = await User.findOneAndDelete({username: name})
+        if (details == null) res.json({ message: "Username not available"})
+        else res.json(details)
+    } catch (error) {
+        res.status(400).json({ massage: error.message })
+    }
+}
+
+module.exports = {addUser,getUser,getAllUser,updateUser,deleteUser}
