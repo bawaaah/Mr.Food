@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const Item = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: [true, "Item already exist"]
     },
     photo: {
         data: Buffer,
