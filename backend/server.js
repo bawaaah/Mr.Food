@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 
 const user = require('./routes/user')
 const category = require('./routes/category')
+const item = require('./routes/item')
 
 // Middleware
 app.use(cors())
@@ -19,7 +20,7 @@ connectDB()
 //routes
 app.use('/user', user)
 app.use('/category', category)
-
+app.use('/item', item)
 
 const port = process.env.PORT || 3000
 //setup app port
