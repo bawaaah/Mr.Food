@@ -1,10 +1,13 @@
 const User = require('../models/user')
+const bcrypt = require('bcrypt')
 
 
 const addUser = async (req,res) => {
+    const password = req.body.password
+    const hashPassword = await bcrypt.hash(password,10)
     const user = new User({
         username: req.body.username,
-        password: req.body.password,
+        password: hashPassword,
         email: req.body.email,
         phone: req.body.phone
     })
@@ -22,7 +25,11 @@ const getUser = async(req,res) =>{
     try {
         const details = await User.findOne({username: name})
         if(details == null) res.json({massage: "NULL"})
-        else res.json(details)
+        else{
+            res.json(details)
+            // const pw = await bcrypt.compare("1234",details.password)
+            // console.log(pw)
+    }
         
     } catch (error) {
         res.status(400).json({ message: error.message })

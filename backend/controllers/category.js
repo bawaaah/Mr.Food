@@ -9,7 +9,7 @@ const addCategory = async (req,res) => {
     try {
         res.status(201).json({message: "Added"})
     } catch (error) {
-        res.status(400).json({massage: error.massage})
+        res.status(400).json({ message: error.message })
     }
 }
 
