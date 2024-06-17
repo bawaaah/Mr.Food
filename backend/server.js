@@ -3,9 +3,10 @@ const app = express()
 const connectDB = require('./config/db')
 require('dotenv').config()
 const cors = require('cors')
-const user = require('./routes/user')
 const bodyParser = require('body-parser') 
 
+const user = require('./routes/user')
+const category = require('./routes/category')
 
 // Middleware
 app.use(cors())
@@ -16,7 +17,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 connectDB()
 
 //routes
-app.use('/user',user)
+app.use('/user', user)
+app.use('/category', category)
 
 
 const port = process.env.PORT || 3000

@@ -7,7 +7,7 @@ router.post('/add',addUser)
 router.get('/get/:name',getUser)
 router.get('/getAll',getAllUser)
 router.delete('/delete/:name',deleteUser)
-router.delete('/update/:name',updateUser)
+router.put('/update/:name',updateUser)
 
 
 module.exports = router
