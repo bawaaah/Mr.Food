@@ -1,0 +1,39 @@
+.signupContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, rgb(237, 58, 58), rgb(247, 124, 124));
+}
+
+.signup {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+.signupButton {
+    width: 80%;
+    margin-top: 1rem;
+    height: 50px;
+}
+
+.ignupImage{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.errorAlertSignup{
+    padding: 0.1rem 0.5rem;   /* Further reduce padding to decrease height */
+    font-size: 0.75rem;       /* Further reduce font size */
+    margin-bottom: 0.25rem;  /* Further reduce space between alerts */
+    line-height: 1;           /* Further adjust line height */
+    height: auto !important;  /* Ensure height is automatically adjusted */
+    max-height: 2rem;         /* Limit maximum height if needed */
+    overflow: hidden;
+    display: flex;            /* Use Flexbox for layout */
+    align-items: center;      /* Center vertically */
+}
