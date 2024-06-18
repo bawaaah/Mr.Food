@@ -1,6 +1,6 @@
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
-
+const jwt = require('jsonwebtoken')
 
 const addUser = async (req,res) => {
     const password = req.body.password
@@ -30,7 +30,6 @@ const getUser = async(req,res) =>{
             // const pw = await bcrypt.compare("1234",details.password)
             // console.log(pw)
     }
-        
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
@@ -69,4 +68,22 @@ const deleteUser = async (req,res) => {
     }
 }
 
-module.exports = {addUser,getUser,getAllUser,updateUser,deleteUser}
+const login = async (req,res) => {
+    const {username,password} = req.body
+    try {
+        const details = await User.findOne({username: username})
+        if(details == null) return res.json({Error: "Cannot find the user"})
+
+        const hashPassword = details.password
+        const pw = await bcrypt.compare(password,hashPassword)
+        if(!pw) return res.json({Error: "Invalid Password"})
+
+        const token = jwt.sign({id: details._id, username: details.username}, process.env.JWT_SECRET, {expiresIn: "1d"})
+
+        res.json({massage: "Successfully login", Token: token})
+    } catch (error) {
+        res.status(400).json({ massage: error.message })
+    }
+}
+
+module.exports = {addUser,getUser,getAllUser,updateUser,deleteUser,login}
