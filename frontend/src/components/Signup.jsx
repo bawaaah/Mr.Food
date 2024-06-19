@@ -2,7 +2,7 @@ import { React, useState } from 'react'
 import { FloatingLabel, Form, Button, Alert } from 'react-bootstrap'
 import axios from 'axios'
 
-import './Signup.css'
+import './css/Signup.css'
 
 import mrFoodLogo from '../images/mrFoodLogo.jpeg'
 
@@ -28,6 +28,7 @@ function Signup() {
                 phone
             })
             console.log(res)
+            window.location.href = "/home"
         } catch (error) {
             alert("The username that you entered is already exist please enter another one !!!")
         }
