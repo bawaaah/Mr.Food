@@ -2,8 +2,7 @@ import React from 'react'
 
 import Category from '../components/Category'
 import ClientNavigationBar from '../components/ClientNavigationBar.jsx'
-
-import './Home.css'
+import Footer from '../components/Footer'
 
 
 function Home() {
@@ -38,6 +37,10 @@ function Home() {
           </div>
         </div>
         
+      </div>
+
+      <div>
+        <Footer />
       </div>
     </div>
   )
