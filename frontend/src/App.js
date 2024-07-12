@@ -1,7 +1,8 @@
 import Signup from "./components/Signup";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
-import ClientNavigationBar from './pages/AdminCategory'
+import AdminCategory from './pages/AdminCategory'
+import AdminItem from './pages/AdminItem'
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Signup />}></Route>
           <Route path="/home" element={<Home />}></Route>
-          <Route path="/nav" element={<ClientNavigationBar />}></Route>
+          <Route path="/admin/category" element={<AdminCategory />}></Route>
+          <Route path="/admin/item" element={<AdminItem />}></Route>
         </Routes>
       </BrowserRouter>
 

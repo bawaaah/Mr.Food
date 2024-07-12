@@ -2,6 +2,16 @@ import React from 'react'
 import AdminNavigationBar from '../components/AdminNavigationBar'
 
 function AdminItem() {
+    const categoryNames = [
+        {
+            id: 1,
+            name: "Category 1"
+        },
+        {
+            id: 2,
+            name: "Category 2"
+        }
+    ]
   return (
     <div className='container'>
         <div className="row pt-5">
@@ -25,18 +35,12 @@ function AdminItem() {
                     </div>
                     <div className="form-group my-2">
                         <label htmlFor="ItemCategory"><strong>Item Category</strong></label>
-                        <div className="form-check">
-                            <input type="radio" name="catcheck" id="" className='form-check-input'/>
-                            <label htmlFor="" className='form-check-label'>Category 1</label>
-                        </div>
-                        <div className="form-check">
-                            <input type="radio" name="catcheck" id="" className='form-check-input'/>
-                            <label htmlFor="" className='form-check-label'>Category 2</label>
-                        </div>
-                        <div className="form-check">
-                            <input type="radio" name="catcheck" id="" className='form-check-input'/>
-                            <label htmlFor="" className='form-check-label'>Category 3</label>
-                        </div>
+                        {categoryNames.map((item)=>
+                            <div className="form-check" key={item.id}>
+                                <input type="radio" name="catcheck" id="" className='form-check-input'/>
+                                <label htmlFor="" className='form-check-label'>{item.name}</label>
+                            </div>
+                        )}
                     <button type="submit" className="btn btn-danger px-4 mt-2">Add</button>
                     </div>
                 </form>

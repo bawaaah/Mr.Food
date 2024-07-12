@@ -2,6 +2,10 @@ import React from 'react'
 import AdminNavigationBar from '../components/AdminNavigationBar'
 
 function AdminCategory() {
+
+    const addCat = () => {
+        console.log('Hello')
+    }
   return (
     <div className='container'>
         <div className="row pt-5">
@@ -20,10 +24,10 @@ function AdminCategory() {
                         <textarea name="catDescription" id="catDes" cols="30" rows="10" className="form-control"></textarea>
                     </div>
                     <div className="form-group my-2">
-                        <label htmlFor="CategoryPhoto"><strong>Category Photo</strong></label><br />
+                        <label htmlFor="CategoryPhoto" className='text-dark'><strong>Category Photo</strong></label><br />
                         <input type="file" name="CategoryPhoto" id="catPhoto" className="form-control-file" />
                     </div>
-                    <button type="submit" className="btn btn-danger px-4 my-2">Add</button>
+                    <button type="button" className="btn btn-danger px-4 my-2" onClick={addCat}>Add</button>
                 </form>
             </div>
         </div>

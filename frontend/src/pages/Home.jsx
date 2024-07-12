@@ -4,8 +4,6 @@ import Category from '../components/Category'
 import ClientNavigationBar from '../components/ClientNavigationBar.jsx'
 import Footer from '../components/Footer'
 
-import './Home.css'
-
 
 function Home() {
   return (
