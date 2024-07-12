@@ -1,7 +1,7 @@
 import Signup from "./components/Signup";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
-import ClientNavigationBar from './components/ClientNavigationBar'
+import ClientNavigationBar from './pages/AdminCategory'
 
 function App() {
   return (
