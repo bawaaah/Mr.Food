@@ -1,7 +1,7 @@
 const Item = require('../models/item')
 
 const addItem = async (req,res) => {
-    const user = new Item({
+    const item = new Item({
         name: req.body.name,
         photo: req.body.photo,
         price: req.body.price,
@@ -9,7 +9,7 @@ const addItem = async (req,res) => {
     })
 
     try {
-        await Item.save()
+        await item.save()
         res.status(201).json({message: "Item Added"})
     } catch (error) {
         res.status(400).json({ message: error.message })

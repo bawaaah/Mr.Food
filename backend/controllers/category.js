@@ -1,15 +1,26 @@
 const Category = require('../models/category')
 
+const fs = require('fs')
+const path = require('path')
+
 const addCategory = async (req,res) => {
+    const data = fs.readFileSync(req.file.path)
+
     const category = new Category({
         name: req.body.name,
         description: req.body.description,
-        photo: req.body.photo
+        photo: {
+            data: data,
+            contentType: req.file.mimetype
+        }
     })
     try {
+        await category.save()
+        fs.unlinkSync(req.file.path)
         res.status(201).json({message: "Added"})
     } catch (error) {
-        res.status(400).json({ message: error.message })
+        res.status(400).json({ message: error.errmsg })
+        console.log(error)
     }
 }
 
