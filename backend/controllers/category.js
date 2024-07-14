@@ -19,8 +19,11 @@ const addCategory = async (req,res) => {
         fs.unlinkSync(req.file.path)
         res.status(201).json({message: "Added"})
     } catch (error) {
-        res.status(400).json({ message: error.errmsg })
-        console.log(error)
+        if (error.code === 11000) {
+            res.status(400).json({ message: "Category already exists" })
+        } else {
+            res.status(400).json({ message: error.message })
+        }
     }
 }
 

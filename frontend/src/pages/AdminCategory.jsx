@@ -35,20 +35,20 @@ function AdminCategory() {
             </div>
             <div className="col mx-3">
                 <h2 className="text-dark">Category Mangement</h2>
-                <form action="" className='border border-dark border-2 p-4 rounded'>
+                <form action="" className='border border-dark border-2 p-4 rounded' onSubmit={addCat}>
                     <div className="form-group mb-2">
                         <label htmlFor="CategoryName" className='text-dark'><strong>Category Name</strong></label>
-                        <input type="email" name="catName" id="catName" className="form-control" onChange={(event) => setName(event.target.value)} />
+                        <input type="text" name="catName" id="catName" className="form-control" onChange={(event) => setName(event.target.value)} required/>
                     </div>
                     <div className="form-group my-2">
                         <label htmlFor="CategoryDescription" className='text-dark'><strong>Category Description</strong></label>
-                        <textarea name="catDescription" id="catDes" cols="30" rows="10" className="form-control" onChange={(event) => setDescription(event.target.value)}></textarea>
+                        <textarea name="catDescription" id="catDes" cols="30" rows="10" className="form-control" onChange={(event) => setDescription(event.target.value)} required></textarea>
                     </div>
                     <div className="form-group my-2">
                         <label htmlFor="CategoryPhoto" className='text-dark'><strong>Category Photo</strong></label><br />
-                        <input type="file" name="CategoryPhoto" id="catPhoto" className="form-control-file" onChange={(event) => setPhoto(event.target.files[0])}/>
+                        <input type="file" name="CategoryPhoto" id="catPhoto" className="form-control-file" onChange={(event) => setPhoto(event.target.files[0])} required/>
                     </div>
-                    <button type="button" className="btn btn-danger px-4 my-2" onClick={addCat}>Add</button>
+                    <button type="submit" className="btn btn-danger px-4 my-2">Add</button>
                 </form>
             </div>
         </div>
